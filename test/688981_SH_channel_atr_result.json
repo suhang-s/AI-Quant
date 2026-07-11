@@ -1,0 +1,77 @@
+{
+  "stock": "中芯国际(688981.SH)",
+  "strategy": "高低通道(20日) + ATR(14日, 2.0倍止损)",
+  "period": "20240711 ~ 20260710",
+  "trading_days": 478,
+  "initial_capital": 100000.0,
+  "final_value": 308894.18,
+  "total_return_pct": 208.89,
+  "annual_return_pct": 81.23,
+  "buy_hold_return_pct": 237.73,
+  "excess_return_pct": -28.83,
+  "sharpe_ratio": 1.4,
+  "sortino_ratio": 2.53,
+  "max_drawdown_pct": -23.02,
+  "calmar_ratio": 3.53,
+  "volatility_pct": 48.42,
+  "alpha": -98.96,
+  "beta": 0.75,
+  "info_ratio": -582.75,
+  "n_trades": 4,
+  "n_wins": 3,
+  "n_losses": 1,
+  "win_rate_pct": 75.0,
+  "avg_hold_days": 54.0,
+  "avg_win_pct": 50.68,
+  "avg_loss_pct": -3.02,
+  "profit_factor": 34.71,
+  "max_win_pct": 65.66,
+  "max_loss_pct": -3.02,
+  "max_consec_loss": 1,
+  "trades": [
+    {
+      "buy_date": "20240927",
+      "buy_price": 49.99,
+      "sell_date": "20241213",
+      "sell_price": 82.99,
+      "hold_days": 50,
+      "pnl": 62419.03,
+      "pnl_pct": 65.66,
+      "win": 1
+    },
+    {
+      "buy_date": "20250625",
+      "buy_price": 88.39,
+      "sell_date": "20251103",
+      "sell_price": 120.21,
+      "hold_days": 81,
+      "pnl": 53708.13,
+      "pnl_pct": 35.71,
+      "win": 1
+    },
+    {
+      "buy_date": "20251222",
+      "buy_price": 120.45,
+      "sell_date": "20260202",
+      "sell_price": 117.06,
+      "hold_days": 28,
+      "pnl": -6185.51,
+      "pnl_pct": -3.02,
+      "win": 0
+    },
+    {
+      "buy_date": "20260420",
+      "buy_price": 107.96,
+      "sell_date": "20260710",
+      "sell_price": 163.02,
+      "hold_days": 55,
+      "pnl": 98571.07,
+      "pnl_pct": 50.68,
+      "win": 1
+    }
+  ],
+  "charts": {
+    "strategy": "charts\\688981_SH_channel_atr_strategy.png",
+    "nav_drawdown": "charts\\688981_SH_channel_atr_nav.png"
+  }
+}

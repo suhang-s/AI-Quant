@@ -1,0 +1,218 @@
+{
+  "stock": "南大光电(300346.SZ)",
+  "strategy": "双均线交叉 MA5/MA15",
+  "period": "20240711 ~ 20260710",
+  "trading_days": 484,
+  "initial_capital": 100000,
+  "final_value": 155777.94,
+  "total_return_pct": 55.78,
+  "annual_return_pct": 25.96,
+  "buy_hold_return_pct": 205.26,
+  "excess_return_pct": -149.48,
+  "sharpe_ratio": 0.68,
+  "max_drawdown_pct": -26.77,
+  "n_trades": 19,
+  "n_wins": 10,
+  "n_losses": 9,
+  "win_rate_pct": 52.6,
+  "avg_hold_days": 14.0,
+  "avg_win_pct": 10.46,
+  "avg_loss_pct": -4.88,
+  "profit_factor": 2.08,
+  "trades": [
+    {
+      "buy_date": "20240904",
+      "buy_price": 22.38,
+      "sell_date": "20240923",
+      "sell_price": 21.57,
+      "hold_days": 11,
+      "pnl": -3594.97,
+      "pnl_pct": -3.82,
+      "win": 0
+    },
+    {
+      "buy_date": "20240924",
+      "buy_price": 22.49,
+      "sell_date": "20241101",
+      "sell_price": 32.33,
+      "hold_days": 23,
+      "pnl": 39119.92,
+      "pnl_pct": 43.45,
+      "win": 1
+    },
+    {
+      "buy_date": "20241106",
+      "buy_price": 35.09,
+      "sell_date": "20241118",
+      "sell_price": 31.57,
+      "hold_days": 8,
+      "pnl": -12920.81,
+      "pnl_pct": -10.22,
+      "win": 0
+    },
+    {
+      "buy_date": "20241204",
+      "buy_price": 34.06,
+      "sell_date": "20241219",
+      "sell_price": 33.59,
+      "hold_days": 11,
+      "pnl": -1839.11,
+      "pnl_pct": -1.59,
+      "win": 0
+    },
+    {
+      "buy_date": "20250120",
+      "buy_price": 31.02,
+      "sell_date": "20250218",
+      "sell_price": 30.36,
+      "hold_days": 15,
+      "pnl": -2607.42,
+      "pnl_pct": -2.33,
+      "win": 0
+    },
+    {
+      "buy_date": "20250224",
+      "buy_price": 32.06,
+      "sell_date": "20250306",
+      "sell_price": 32.38,
+      "hold_days": 8,
+      "pnl": 882.9,
+      "pnl_pct": 0.79,
+      "win": 1
+    },
+    {
+      "buy_date": "20250310",
+      "buy_price": 32.26,
+      "sell_date": "20250312",
+      "sell_price": 31.11,
+      "hold_days": 2,
+      "pnl": -4256.88,
+      "pnl_pct": -3.77,
+      "win": 0
+    },
+    {
+      "buy_date": "20250402",
+      "buy_price": 30.65,
+      "sell_date": "20250514",
+      "sell_price": 31.69,
+      "hold_days": 26,
+      "pnl": 3409.99,
+      "pnl_pct": 3.18,
+      "win": 1
+    },
+    {
+      "buy_date": "20250604",
+      "buy_price": 31.25,
+      "sell_date": "20250612",
+      "sell_price": 30.09,
+      "hold_days": 6,
+      "pnl": -4284.41,
+      "pnl_pct": -3.91,
+      "win": 0
+    },
+    {
+      "buy_date": "20250626",
+      "buy_price": 30.74,
+      "sell_date": "20250710",
+      "sell_price": 30.51,
+      "hold_days": 10,
+      "pnl": -1029.89,
+      "pnl_pct": -0.96,
+      "win": 0
+    },
+    {
+      "buy_date": "20250721",
+      "buy_price": 31.31,
+      "sell_date": "20250805",
+      "sell_price": 31.45,
+      "hold_days": 11,
+      "pnl": 251.83,
+      "pnl_pct": 0.24,
+      "win": 1
+    },
+    {
+      "buy_date": "20250808",
+      "buy_price": 31.69,
+      "sell_date": "20250904",
+      "sell_price": 33.13,
+      "hold_days": 19,
+      "pnl": 4526.21,
+      "pnl_pct": 4.32,
+      "win": 1
+    },
+    {
+      "buy_date": "20250918",
+      "buy_price": 35.82,
+      "sell_date": "20251020",
+      "sell_price": 37.87,
+      "hold_days": 16,
+      "pnl": 6113.55,
+      "pnl_pct": 5.5,
+      "win": 1
+    },
+    {
+      "buy_date": "20251030",
+      "buy_price": 40.31,
+      "sell_date": "20251105",
+      "sell_price": 38.13,
+      "hold_days": 4,
+      "pnl": -6559.27,
+      "pnl_pct": -5.61,
+      "win": 0
+    },
+    {
+      "buy_date": "20251121",
+      "buy_price": 38.98,
+      "sell_date": "20251230",
+      "sell_price": 42.86,
+      "hold_days": 27,
+      "pnl": 10620.67,
+      "pnl_pct": 9.72,
+      "win": 1
+    },
+    {
+      "buy_date": "20260107",
+      "buy_price": 54.92,
+      "sell_date": "20260128",
+      "sell_price": 58.38,
+      "hold_days": 15,
+      "pnl": 7348.37,
+      "pnl_pct": 6.08,
+      "win": 1
+    },
+    {
+      "buy_date": "20260225",
+      "buy_price": 57.3,
+      "sell_date": "20260304",
+      "sell_price": 50.7,
+      "hold_days": 5,
+      "pnl": -14765.85,
+      "pnl_pct": -11.7,
+      "win": 0
+    },
+    {
+      "buy_date": "20260409",
+      "buy_price": 47.46,
+      "sell_date": "20260601",
+      "sell_price": 49.31,
+      "hold_days": 34,
+      "pnl": 4195.03,
+      "pnl_pct": 3.68,
+      "win": 1
+    },
+    {
+      "buy_date": "20260609",
+      "buy_price": 62.71,
+      "sell_date": "20260709",
+      "sell_price": 80.18,
+      "hold_days": 21,
+      "pnl": 31168.08,
+      "pnl_pct": 27.59,
+      "win": 1
+    }
+  ],
+  "charts": {
+    "strategy": "G:/learn/test\\charts\\300346_SZ_ma_strategy.png",
+    "nav_drawdown": "G:/learn/test\\charts\\300346_SZ_nav_drawdown.png"
+  }
+}

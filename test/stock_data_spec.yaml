@@ -1,0 +1,362 @@
+# ============================================================
+# 股票数据采集与分析规范文件 (Stock Data Spec)
+# 版本: 1.1
+# 创建: 2026-07-11
+# 更新: 2026-07-11 (v1.1 增加前复权数据支持)
+# 作者: 苏航
+# 说明: 本文件定义了股票数据采集、诊断、指标计算、可视化与
+#       报告生成的完整流程规范，可复用于任意股票组合。
+# ============================================================
+
+# ----------------------------------------------------------
+# 1. 目标股票列表
+#    每只股票需指定: name(中文名), code(Tushare代码), sector(行业)
+# ----------------------------------------------------------
+stocks:
+  - name: 中芯国际
+    code: 688981.SH
+    sector: 半导体
+    note: 科创板，国内最大晶圆代工企业
+
+  - name: 比亚迪
+    code: 002594.SZ
+    sector: 新能源汽车
+    note: 深圳主板，新能源车+电池龙头
+
+  - name: 长江电力
+    code: 600900.SH
+    sector: 水电
+    note: 上海主板，全球最大水电上市公司
+
+  - name: 南大光电
+    code: 300346.SZ
+    sector: 光电材料
+    note: 创业板，MO源+光刻胶材料
+
+# ----------------------------------------------------------
+# 2. 数据采集参数
+# ----------------------------------------------------------
+data:
+  source: tushare               # 数据源
+  api_daily: mcp__tushareMcp__daily          # 日线接口 (不复权原始数据)
+  api_adj_factor: mcp__tushareMcp__adj_factor  # 复权因子接口
+  api_daily_basic: mcp__tushareMcp__daily_basic  # 每日指标接口
+  api_stock_basic: mcp__tushareMcp__stock_basic  # 股票基本信息接口
+  frequency: daily              # daily | weekly | monthly | min
+  lookback_years: 2             # 回溯年数
+  # start_date / end_date 运行时动态计算: 今天 - lookback_years ~ 今天
+  adj: qfq                      # 复权类型: qfq=前复权 | hfq=后复权 | None=不复权
+  # 复权计算方法 (前复权):
+  #   1. 调用 daily 获取原始OHLCV
+  #   2. 调用 adj_factor 获取复权因子
+  #   3. 前复权: adj_price = raw_price * adj_factor / max(adj_factor)
+  #      后复权: adj_price = raw_price * adj_factor
+  #   4. 成交量(vol)和成交额(amount)不复权, 保持原始值
+  fields:                       # 日线数据字段 (复权后)
+    - ts_code
+    - trade_date
+    - open                      # 复权后开盘价
+    - high                      # 复权后最高价
+    - low                       # 复权后最低价
+    - close                     # 复权后收盘价
+    - pre_close                 # 复权前收盘价 (原始)
+    - change                    # 涨跌额 (原始)
+    - pct_chg                   # 涨跌幅% (原始, 不受复权影响)
+    - vol                       # 成交量 (手, 不复权)
+    - amount                    # 成交额 (千元, 不复权)
+    - adj_factor                # 复权因子 (附加字段)
+  basic_fields:                 # 每日指标字段 (可选)
+    - ts_code
+    - trade_date
+    - turnover_rate            # 换手率
+    - pe                       # 市盈率
+    - pe_ttm                   # 市盈率TTM
+    - pb                       # 市净率
+    - total_mv                 # 总市值
+    - circ_mv                  # 流通市值
+
+# ----------------------------------------------------------
+# 3. 数据质量检查
+# ----------------------------------------------------------
+quality_check:
+  check_missing: true           # 检查缺失值
+  check_duplicates: true        # 检查重复日期
+  check_anomalies: true         # 检查异常值 (涨跌幅 > 20% 或成交量为0)
+  expected_min_records: 240     # 每年最少交易日 (约244天)
+  action_on_fail: warn          # warn | abort
+
+# ----------------------------------------------------------
+# 4. 描述性统计
+# ----------------------------------------------------------
+statistics:
+  metrics:                      # 计算的统计量
+    - count                    # 样本数
+    - mean                     # 均值
+    - std                      # 标准差
+    - min                      # 最小值
+    - median                   # 中位数
+    - max                      # 最大值
+    - skewness                 # 偏度
+    - kurtosis                 # 峰度
+    - percentile_25            # 25%分位
+    - percentile_75            # 75%分位
+  apply_to:                     # 应用的字段
+    - open
+    - high
+    - low
+    - close
+    - pct_chg
+    - vol
+    - amount
+  charts:                       # 统计图表
+    - type: histogram           # 直方图
+      field: close
+    - type: boxplot             # 箱线图
+      field: close
+
+# ----------------------------------------------------------
+# 5. 技术指标
+# ----------------------------------------------------------
+indicators:
+  - name: RSI                   # 相对强弱指标
+    function: calc_rsi
+    params: { period: 14 }
+    overbought: 70             # 超买线
+    oversold: 30               # 超卖线
+    chart: subplot             # 子图绘制
+
+  - name: MACD                  # 指数平滑异同移动平均线
+    function: calc_macd
+    params: { fast: 12, slow: 26, signal: 9 }
+    components: [DIF, DEA, HIST]
+    chart: subplot
+
+  - name: Bollinger_Bands       # 布林带
+    function: calc_boll
+    params: { period: 20, nbdev: 2 }
+    components: [UPPER, MID, LOWER]
+    chart: overlay             # 叠加在价格图上
+
+  - name: KDJ                   # 随机指标
+    function: calc_kdj
+    params: { n: 9 }
+    components: [K, D, J]
+    overbought: 80
+    oversold: 20
+    chart: subplot
+
+  - name: WR                    # 威廉指标
+    function: calc_wr
+    params: { n: 14 }
+    overbought: -20
+    oversold: -80
+    chart: subplot
+
+# ----------------------------------------------------------
+# 6. 可视化要求
+# ----------------------------------------------------------
+visualization:
+  theme: light
+  color_up: "#e74c3c"           # 涨-红色 (中国股市配色)
+  color_down: "#27ae60"         # 跌-绿色
+  font: simsun                  # 宋体
+  dpi: 150
+  figsize: [11, 5]              # 默认图表尺寸
+
+  charts:
+    - id: kline                 # K线图 + MA均线
+      type: candlestick
+      overlays: [MA5, MA20, MA60]
+      interactive: true         # HTML用ECharts
+      title: "K线图与均线"
+
+    - id: volume                # 成交量图
+      type: bar
+      secondary_axis: amount    # 成交额折线为副轴
+      title: "成交量与成交额"
+
+    - id: indicator_rsi         # RSI指标图
+      type: subplot
+      ref_field: close
+      title: "RSI(14) 指标"
+
+    - id: indicator_macd        # MACD指标图
+      type: subplot
+      ref_field: close
+      title: "MACD 指标"
+
+    - id: indicator_boll        # 布林带图
+      type: overlay
+      ref_field: close
+      title: "布林带 (20, 2)"
+
+    - id: indicator_kdj         # KDJ指标图
+      type: subplot
+      ref_field: close
+      title: "KDJ(9) 指标"
+
+    - id: indicator_wr          # WR指标图
+      type: subplot
+      ref_field: close
+      title: "WR(14) 威廉指标"
+
+  # 每张图必须有: 标号 + 标题 + 解读文字
+  caption_format: "图 {n}  {title}"
+  require_interpretation: true
+
+# ----------------------------------------------------------
+# 7. 输出规范
+# ----------------------------------------------------------
+output:
+  base_dir: "G:/learn/test"
+  encoding: "utf-8-sig"         # CSV编码 (带BOM, Excel兼容)
+
+  # 目录结构
+  structure:
+    data_dir: "data"            # CSV数据目录
+    dashboard_dir: "dashboards" # HTML面板目录
+    chart_dir: "charts"         # 静态图表目录 (PNG)
+    report_dir: "reports"       # 报告目录
+
+  # 文件命名规则
+  naming:
+    csv: "{code}_{frequency}.csv"           # 例: 688981_SH_daily.csv
+    html: "{code}_dashboard.html"           # 例: 688981_SH_dashboard.html
+    chart: "{code}_{chart_id}.png"          # 例: 688981_SH_kline.png
+    report: "苏航+{task_name}.docx"          # 例: 苏航+TASK3.docx
+
+  # 代码中的 / 替换为 _
+  code_separator: "_"
+
+# ----------------------------------------------------------
+# 8. HTML面板规范
+# ----------------------------------------------------------
+dashboard:
+  engine: echarts               # ECharts CDN
+  offline_data: true            # 数据内嵌HTML, 离线可看
+  sections:
+    - stats_cards               # 统计卡片 (最新价/涨跌幅/最高最低/均量)
+    - kline_chart               # K线图 + MA均线 (可缩放)
+    - volume_chart              # 成交量柱 + 成交额折线
+  color_scheme: cn_stock        # 中国股市: 涨红跌绿
+
+# ----------------------------------------------------------
+# 9. 报告规范
+# ----------------------------------------------------------
+report:
+  format: docx                  # docx | pdf
+  filename_pattern: "苏航+{task_name}.docx"
+
+  # 排版格式
+  font: 宋体
+  font_size_pt: 10.5           # 五号字
+  line_spacing: 1.5            # 1.5倍行距
+  space_before_pt: 0           # 0段间距
+  space_after_pt: 0
+  alignment: justify           # 两端对齐
+  first_line_indent_chars: 2   # 首行缩进2字符
+  code_font: Consolas
+  code_font_size_pt: 9
+
+  # 代码块样式
+  code_bg_color: "F5F5F5"      # 浅灰背景
+
+  # 报告章节模板
+  sections:
+    - id: data_diagnosis
+      title: "数据基础诊断分析"
+      content:
+        - 缺失值检查 (表格 + 结论)
+        - 描述性统计量 (表格 + 直方图 + 箱线图)
+
+    - id: indicator_intro
+      title: "技术指标介绍"
+      content:
+        - 每个指标的原理与作用
+        - 计算公式 (代码块)
+
+    - id: python_implementation
+      title: "Python编程实现"
+      content:
+        - 数据加载代码
+        - 指标计算代码
+        - 可视化图形 (每图带标号+标题+解读)
+
+    - id: trend_analysis
+      title: "走势解读"
+      content:
+        - 近半年走势分析
+        - 关键统计指标表
+        - 指标信号解读
+
+    - id: cross_comparison      # 多股对比 (当股票数>1时)
+      title: "多股横向对比"
+      content:
+        - 价格走势对比图
+        - 涨跌幅排名表
+        - 波动率对比
+
+# ----------------------------------------------------------
+# 10. 执行流程 (工作步骤)
+# ----------------------------------------------------------
+workflow:
+  - step: 1
+    name: "确认股票代码"
+    action: "调用 stock_basic 接口验证每只股票代码与名称"
+    tool: mcp__tushareMcp__stock_basic
+
+  - step: 2
+    name: "采集日线数据"
+    action: "对每只股票调用 daily 接口获取近2年日线OHLCV数据 (不复权)"
+    tool: mcp__tushareMcp__daily
+    parallel: true              # 可并行获取多只
+
+  - step: 2.5
+    name: "采集复权因子并计算前复权价格"
+    action: "调用 adj_factor 获取复权因子, 计算 adj_price = raw_price * adj_factor / max(adj_factor)"
+    tool: mcp__tushareMcp__adj_factor
+    note: "vol/amount/pct_chg 不复权, 仅OHLC价格复权"
+
+  - step: 3
+    name: "采集每日指标"
+    action: "调用 daily_basic 获取换手率/PE/PB/市值等"
+    tool: mcp__tushareMcp__daily_basic
+    optional: true
+
+  - step: 4
+    name: "数据质量检查"
+    action: "检查缺失值、重复日期、异常值，生成诊断报告"
+    output: "诊断结论写入报告"
+
+  - step: 5
+    name: "保存CSV"
+    action: "将前复权后的数据保存为UTF-8-SIG编码的CSV文件"
+    output: "data/{code}_daily.csv"
+
+  - step: 6
+    name: "描述性统计"
+    action: "计算均值/标准差/偏度/峰度等，生成直方图+箱线图"
+
+  - step: 7
+    name: "计算技术指标"
+    action: "计算RSI/MACD/布林带/KDJ/WR五个指标"
+
+  - step: 8
+    name: "生成HTML面板"
+    action: "用ECharts生成K线+成交量交互面板"
+    output: "dashboards/{code}_dashboard.html"
+
+  - step: 9
+    name: "生成指标图表"
+    action: "用matplotlib生成各指标PNG图"
+    output: "charts/{code}_{indicator}.png"
+
+  - step: 10
+    name: "生成Word报告"
+    action: "按报告模板生成docx文件"
+    output: "reports/苏航+{task_name}.docx"
+
+  - step: 11
+    name: "多股对比 (可选)"
+    action: "当涉及多只股票时，生成横向对比图表"
+    condition: "stocks.count > 1"

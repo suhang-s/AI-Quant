@@ -1,0 +1,208 @@
+{
+  "stock": "药明康德(603259.SH)",
+  "strategy": "双均线交叉 MA5/MA15",
+  "period": "20240711 ~ 20260710",
+  "trading_days": 484,
+  "initial_capital": 100000,
+  "final_value": 209646.99,
+  "total_return_pct": 109.65,
+  "annual_return_pct": 47.02,
+  "buy_hold_return_pct": 230.74,
+  "excess_return_pct": -121.09,
+  "sharpe_ratio": 1.22,
+  "max_drawdown_pct": -30.73,
+  "n_trades": 18,
+  "n_wins": 9,
+  "n_losses": 9,
+  "win_rate_pct": 50.0,
+  "avg_hold_days": 15.0,
+  "avg_win_pct": 16.13,
+  "avg_loss_pct": -5.57,
+  "profit_factor": 2.13,
+  "trades": [
+    {
+      "buy_date": "20240905",
+      "buy_price": 38.09,
+      "sell_date": "20241021",
+      "sell_price": 48.36,
+      "hold_days": 25,
+      "pnl": 24423.98,
+      "pnl_pct": 26.7,
+      "win": 1
+    },
+    {
+      "buy_date": "20241029",
+      "buy_price": 51.37,
+      "sell_date": "20241119",
+      "sell_price": 50.01,
+      "hold_days": 15,
+      "pnl": -3372.05,
+      "pnl_pct": -2.85,
+      "win": 0
+    },
+    {
+      "buy_date": "20241205",
+      "buy_price": 49.37,
+      "sell_date": "20241225",
+      "sell_price": 53.43,
+      "hold_days": 14,
+      "pnl": 9087.4,
+      "pnl_pct": 8.0,
+      "win": 1
+    },
+    {
+      "buy_date": "20250116",
+      "buy_price": 51.4,
+      "sell_date": "20250304",
+      "sell_price": 57.98,
+      "hold_days": 27,
+      "pnl": 15512.41,
+      "pnl_pct": 12.56,
+      "win": 1
+    },
+    {
+      "buy_date": "20250314",
+      "buy_price": 61.37,
+      "sell_date": "20250403",
+      "sell_price": 61.0,
+      "hold_days": 14,
+      "pnl": -1096.47,
+      "pnl_pct": -0.81,
+      "win": 0
+    },
+    {
+      "buy_date": "20250424",
+      "buy_price": 54.18,
+      "sell_date": "20250623",
+      "sell_price": 64.04,
+      "hold_days": 38,
+      "pnl": 24333.51,
+      "pnl_pct": 17.95,
+      "win": 1
+    },
+    {
+      "buy_date": "20250625",
+      "buy_price": 66.53,
+      "sell_date": "20250812",
+      "sell_price": 89.77,
+      "hold_days": 34,
+      "pnl": 55368.18,
+      "pnl_pct": 34.65,
+      "win": 1
+    },
+    {
+      "buy_date": "20250814",
+      "buy_price": 96.82,
+      "sell_date": "20250822",
+      "sell_price": 92.22,
+      "hold_days": 6,
+      "pnl": -10554.15,
+      "pnl_pct": -4.95,
+      "win": 0
+    },
+    {
+      "buy_date": "20250826",
+      "buy_price": 94.97,
+      "sell_date": "20250917",
+      "sell_price": 107.23,
+      "hold_days": 16,
+      "pnl": 25293.71,
+      "pnl_pct": 12.67,
+      "win": 1
+    },
+    {
+      "buy_date": "20250919",
+      "buy_price": 106.7,
+      "sell_date": "20250925",
+      "sell_price": 105.35,
+      "hold_days": 4,
+      "pnl": -3301.86,
+      "pnl_pct": -1.47,
+      "win": 0
+    },
+    {
+      "buy_date": "20251009",
+      "buy_price": 111.08,
+      "sell_date": "20251014",
+      "sell_price": 94.42,
+      "hold_days": 3,
+      "pnl": -33743.22,
+      "pnl_pct": -15.18,
+      "win": 0
+    },
+    {
+      "buy_date": "20251027",
+      "buy_price": 104.97,
+      "sell_date": "20251103",
+      "sell_price": 94.9,
+      "hold_days": 5,
+      "pnl": -18499.22,
+      "pnl_pct": -9.78,
+      "win": 0
+    },
+    {
+      "buy_date": "20251211",
+      "buy_price": 91.94,
+      "sell_date": "20251219",
+      "sell_price": 91.02,
+      "hold_days": 6,
+      "pnl": -2001.38,
+      "pnl_pct": -1.21,
+      "win": 0
+    },
+    {
+      "buy_date": "20251230",
+      "buy_price": 90.46,
+      "sell_date": "20260123",
+      "sell_price": 96.07,
+      "hold_days": 16,
+      "pnl": 10284.21,
+      "pnl_pct": 5.98,
+      "win": 1
+    },
+    {
+      "buy_date": "20260210",
+      "buy_price": 99.76,
+      "sell_date": "20260302",
+      "sell_price": 94.53,
+      "hold_days": 8,
+      "pnl": -9778.85,
+      "pnl_pct": -5.44,
+      "win": 0
+    },
+    {
+      "buy_date": "20260327",
+      "buy_price": 95.48,
+      "sell_date": "20260421",
+      "sell_price": 97.01,
+      "hold_days": 16,
+      "pnl": 2389.51,
+      "pnl_pct": 1.39,
+      "win": 1
+    },
+    {
+      "buy_date": "20260429",
+      "buy_price": 109.44,
+      "sell_date": "20260518",
+      "sell_price": 100.45,
+      "hold_days": 10,
+      "pnl": -14733.02,
+      "pnl_pct": -8.41,
+      "win": 0
+    },
+    {
+      "buy_date": "20260617",
+      "buy_price": 98.2,
+      "sell_date": "20260710",
+      "sell_price": 123.3,
+      "hold_days": 16,
+      "pnl": 39777.84,
+      "pnl_pct": 25.3,
+      "win": 1
+    }
+  ],
+  "charts": {
+    "strategy": "G:/learn/test\\charts\\603259_SH_ma_strategy.png",
+    "nav_drawdown": "G:/learn/test\\charts\\603259_SH_nav_drawdown.png"
+  }
+}

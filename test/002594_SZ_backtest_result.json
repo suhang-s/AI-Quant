@@ -1,0 +1,188 @@
+{
+  "stock": "比亚迪(002594.SZ)",
+  "strategy": "双均线交叉 MA5/MA15",
+  "period": "20240711 ~ 20260710",
+  "trading_days": 484,
+  "initial_capital": 100000,
+  "final_value": 116963.37,
+  "total_return_pct": 16.96,
+  "annual_return_pct": 8.5,
+  "buy_hold_return_pct": 9.29,
+  "excess_return_pct": 7.67,
+  "sharpe_ratio": 0.34,
+  "max_drawdown_pct": -25.89,
+  "n_trades": 16,
+  "n_wins": 5,
+  "n_losses": 11,
+  "win_rate_pct": 31.2,
+  "avg_hold_days": 13.0,
+  "avg_win_pct": 12.09,
+  "avg_loss_pct": -3.43,
+  "profit_factor": 1.4,
+  "trades": [
+    {
+      "buy_date": "20240821",
+      "buy_price": 79.39,
+      "sell_date": "20241101",
+      "sell_price": 95.63,
+      "hold_days": 45,
+      "pnl": 17657.39,
+      "pnl_pct": 20.2,
+      "win": 1
+    },
+    {
+      "buy_date": "20241212",
+      "buy_price": 93.45,
+      "sell_date": "20250102",
+      "sell_price": 89.3,
+      "hold_days": 14,
+      "pnl": -4774.93,
+      "pnl_pct": -4.64,
+      "win": 0
+    },
+    {
+      "buy_date": "20250120",
+      "buy_price": 93.69,
+      "sell_date": "20250305",
+      "sell_price": 116.6,
+      "hold_days": 26,
+      "pnl": 24951.81,
+      "pnl_pct": 24.19,
+      "win": 1
+    },
+    {
+      "buy_date": "20250317",
+      "buy_price": 125.26,
+      "sell_date": "20250402",
+      "sell_price": 118.75,
+      "hold_days": 12,
+      "pnl": -6764.58,
+      "pnl_pct": -5.4,
+      "win": 0
+    },
+    {
+      "buy_date": "20250417",
+      "buy_price": 115.19,
+      "sell_date": "20250507",
+      "sell_price": 118.32,
+      "hold_days": 11,
+      "pnl": 2884.03,
+      "pnl_pct": 2.5,
+      "win": 1
+    },
+    {
+      "buy_date": "20250509",
+      "buy_price": 119.65,
+      "sell_date": "20250529",
+      "sell_price": 118.96,
+      "hold_days": 14,
+      "pnl": -940.37,
+      "pnl_pct": -0.79,
+      "win": 0
+    },
+    {
+      "buy_date": "20250721",
+      "buy_price": 110.06,
+      "sell_date": "20250801",
+      "sell_price": 105.8,
+      "hold_days": 9,
+      "pnl": -4934.15,
+      "pnl_pct": -4.07,
+      "win": 0
+    },
+    {
+      "buy_date": "20250818",
+      "buy_price": 108.37,
+      "sell_date": "20250904",
+      "sell_price": 104.0,
+      "hold_days": 13,
+      "pnl": -5051.09,
+      "pnl_pct": -4.23,
+      "win": 0
+    },
+    {
+      "buy_date": "20250917",
+      "buy_price": 110.99,
+      "sell_date": "20250925",
+      "sell_price": 107.5,
+      "hold_days": 6,
+      "pnl": -3718.54,
+      "pnl_pct": -3.35,
+      "win": 0
+    },
+    {
+      "buy_date": "20251009",
+      "buy_price": 110.6,
+      "sell_date": "20251014",
+      "sell_price": 105.99,
+      "hold_days": 3,
+      "pnl": -4836.27,
+      "pnl_pct": -4.37,
+      "win": 0
+    },
+    {
+      "buy_date": "20251204",
+      "buy_price": 95.24,
+      "sell_date": "20251217",
+      "sell_price": 95.21,
+      "hold_days": 9,
+      "pnl": -252.96,
+      "pnl_pct": -0.24,
+      "win": 0
+    },
+    {
+      "buy_date": "20251226",
+      "buy_price": 100.01,
+      "sell_date": "20260113",
+      "sell_price": 97.19,
+      "hold_days": 10,
+      "pnl": -3026.35,
+      "pnl_pct": -3.02,
+      "win": 0
+    },
+    {
+      "buy_date": "20260213",
+      "buy_price": 90.27,
+      "sell_date": "20260403",
+      "sell_price": 99.01,
+      "hold_days": 29,
+      "pnl": 9392.98,
+      "pnl_pct": 9.45,
+      "win": 1
+    },
+    {
+      "buy_date": "20260416",
+      "buy_price": 105.54,
+      "sell_date": "20260424",
+      "sell_price": 99.46,
+      "hold_days": 6,
+      "pnl": -6293.73,
+      "pnl_pct": -5.96,
+      "win": 0
+    },
+    {
+      "buy_date": "20260603",
+      "buy_price": 94.82,
+      "sell_date": "20260604",
+      "sell_price": 93.44,
+      "hold_days": 1,
+      "pnl": -1735.06,
+      "pnl_pct": -1.66,
+      "win": 0
+    },
+    {
+      "buy_date": "20260707",
+      "buy_price": 86.26,
+      "sell_date": "20260710",
+      "sell_price": 90.0,
+      "hold_days": 3,
+      "pnl": 4264.79,
+      "pnl_pct": 4.12,
+      "win": 1
+    }
+  ],
+  "charts": {
+    "strategy": "G:/learn/test\\charts\\002594_SZ_ma_strategy.png",
+    "nav_drawdown": "G:/learn/test\\charts\\002594_SZ_nav_drawdown.png"
+  }
+}

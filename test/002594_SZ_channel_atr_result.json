@@ -1,0 +1,97 @@
+{
+  "stock": "比亚迪(002594.SZ)",
+  "strategy": "高低通道(20日) + ATR(14日, 2.0倍止损)",
+  "period": "20240711 ~ 20260710",
+  "trading_days": 484,
+  "initial_capital": 100000.0,
+  "final_value": 96340.83,
+  "total_return_pct": -3.66,
+  "annual_return_pct": -1.92,
+  "buy_hold_return_pct": 9.29,
+  "excess_return_pct": -12.95,
+  "sharpe_ratio": -0.11,
+  "sortino_ratio": -0.15,
+  "max_drawdown_pct": -34.09,
+  "calmar_ratio": -0.06,
+  "volatility_pct": 22.27,
+  "alpha": -9.32,
+  "beta": 0.47,
+  "info_ratio": -47.49,
+  "n_trades": 6,
+  "n_wins": 3,
+  "n_losses": 3,
+  "win_rate_pct": 50.0,
+  "avg_hold_days": 28.0,
+  "avg_win_pct": 5.44,
+  "avg_loss_pct": -6.58,
+  "profit_factor": 0.8,
+  "max_win_pct": 11.43,
+  "max_loss_pct": -8.76,
+  "max_consec_loss": 3,
+  "trades": [
+    {
+      "buy_date": "20240830",
+      "buy_price": 82.16,
+      "sell_date": "20241122",
+      "sell_price": 91.74,
+      "hold_days": 53,
+      "pnl": 10334.51,
+      "pnl_pct": 11.43,
+      "win": 1
+    },
+    {
+      "buy_date": "20250206",
+      "buy_price": 102.47,
+      "sell_date": "20250407",
+      "sell_price": 105.99,
+      "hold_days": 41,
+      "pnl": 3300.24,
+      "pnl_pct": 3.22,
+      "win": 1
+    },
+    {
+      "buy_date": "20250516",
+      "buy_price": 128.19,
+      "sell_date": "20250528",
+      "sell_price": 119.53,
+      "hold_days": 8,
+      "pnl": -7134.35,
+      "pnl_pct": -6.95,
+      "win": 0
+    },
+    {
+      "buy_date": "20250826",
+      "buy_price": 113.75,
+      "sell_date": "20250904",
+      "sell_price": 104.0,
+      "hold_days": 7,
+      "pnl": -7980.96,
+      "pnl_pct": -8.76,
+      "win": 0
+    },
+    {
+      "buy_date": "20251226",
+      "buy_price": 100.01,
+      "sell_date": "20260119",
+      "sell_price": 96.19,
+      "hold_days": 14,
+      "pnl": -3622.55,
+      "pnl_pct": -4.02,
+      "win": 0
+    },
+    {
+      "buy_date": "20260302",
+      "buy_price": 96.79,
+      "sell_date": "20260513",
+      "sell_price": 98.6,
+      "hold_days": 48,
+      "pnl": 1443.95,
+      "pnl_pct": 1.66,
+      "win": 1
+    }
+  ],
+  "charts": {
+    "strategy": "charts\\002594_SZ_channel_atr_strategy.png",
+    "nav_drawdown": "charts\\002594_SZ_channel_atr_nav.png"
+  }
+}

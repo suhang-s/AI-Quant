@@ -1,0 +1,97 @@
+{
+  "stock": "药明康德(603259.SH)",
+  "strategy": "高低通道(20日) + ATR(14日, 2.0倍止损)",
+  "period": "20240711 ~ 20260710",
+  "trading_days": 484,
+  "initial_capital": 100000.0,
+  "final_value": 191038.86,
+  "total_return_pct": 91.04,
+  "annual_return_pct": 40.08,
+  "buy_hold_return_pct": 230.74,
+  "excess_return_pct": -139.7,
+  "sharpe_ratio": 1.07,
+  "sortino_ratio": 1.49,
+  "max_drawdown_pct": -19.17,
+  "calmar_ratio": 2.09,
+  "volatility_pct": 34.09,
+  "alpha": -114.53,
+  "beta": 0.66,
+  "info_ratio": -796.39,
+  "n_trades": 6,
+  "n_wins": 3,
+  "n_losses": 3,
+  "win_rate_pct": 50.0,
+  "avg_hold_days": 45.0,
+  "avg_win_pct": 30.13,
+  "avg_loss_pct": -2.36,
+  "profit_factor": 9.7,
+  "max_win_pct": 56.59,
+  "max_loss_pct": -4.59,
+  "max_consec_loss": 2,
+  "trades": [
+    {
+      "buy_date": "20240923",
+      "buy_price": 40.09,
+      "sell_date": "20241122",
+      "sell_price": 47.66,
+      "hold_days": 39,
+      "pnl": 17194.73,
+      "pnl_pct": 18.63,
+      "win": 1
+    },
+    {
+      "buy_date": "20250206",
+      "buy_price": 55.74,
+      "sell_date": "20250407",
+      "sell_price": 54.9,
+      "hold_days": 41,
+      "pnl": -1816.33,
+      "pnl_pct": -1.71,
+      "win": 0
+    },
+    {
+      "buy_date": "20250520",
+      "buy_price": 60.17,
+      "sell_date": "20251014",
+      "sell_price": 94.42,
+      "hold_days": 98,
+      "pnl": 61342.41,
+      "pnl_pct": 56.59,
+      "win": 1
+    },
+    {
+      "buy_date": "20260106",
+      "buy_price": 94.74,
+      "sell_date": "20260304",
+      "sell_price": 90.58,
+      "hold_days": 35,
+      "pnl": -7401.03,
+      "pnl_pct": -4.59,
+      "win": 0
+    },
+    {
+      "buy_date": "20260331",
+      "buy_price": 96.56,
+      "sell_date": "20260608",
+      "sell_price": 96.0,
+      "hold_days": 45,
+      "pnl": -1219.28,
+      "pnl_pct": -0.79,
+      "win": 0
+    },
+    {
+      "buy_date": "20260622",
+      "buy_price": 106.83,
+      "sell_date": "20260710",
+      "sell_price": 123.3,
+      "hold_days": 14,
+      "pnl": 22713.94,
+      "pnl_pct": 15.17,
+      "win": 1
+    }
+  ],
+  "charts": {
+    "strategy": "charts\\603259_SH_channel_atr_strategy.png",
+    "nav_drawdown": "charts\\603259_SH_channel_atr_nav.png"
+  }
+}
